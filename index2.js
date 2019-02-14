@@ -1,34 +1,27 @@
-document.addEventListener("DOMContentLoaded", e => {
+document.addEventListener("DOMContentLoaded", () =>{
 
+const postUrl = 'http://localhost:3000/api/v1/posts'
+const sideBar = document.querySelector("#sidenavlist")
 
-
-
-fetch('http://localhost:3000/api/v1/posts')
+fetch(postUrl)
 .then(res => res.json())
-.then(post => {
-	post.forEach(sideBar)
+.then(posts => {
+	posts.forEach(displayPost)
 })
 
-const postUl = document.querySelector('#note-list')
 
-function sideBar (posts){
+	function displayPost(post){
+			let postLi = document.createElement("li")
+	postLi.innerText = post.title
+	postLi.className= 'note-li'
+	postLi.dataset.id = post.id
+  sideBar.append(postLi)
 
-	postUl.innerHTML = `<li data-id=${posts.id} class='post'>${posts.title}</li>`
-
-}
-
-postUl.addEventListener('click', showPost)
-
-function showPost(e){
-  if(e.target.className === 'post'){
-		
-
-	}
+	let delBtn = document.createElement('button')
+	delBtn.className = 'delete-button'
+	delBtn.dataset.id = post.id
+	postLi.append(delBtn)
 
 }
-
-
-
-
 
 })
