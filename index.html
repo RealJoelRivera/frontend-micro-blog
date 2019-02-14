@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Micro Blog</title>
-  </head>
+<html lang="en">
+<head>
   <script type="text/javascript" src="./index.js"></script>
   <script type="text/javascript" src="./index2.js"></script>
-  <body>
-    <div id="comment-div">
-      <form action="/action_page.php" id="usrform">
-      Name: <input type="text" name="name">
-      <input type="submit">
-      </form>
-      <br>
-      <textarea rows="4" cols="50" name="comment" form="usrform">Enter text here...</textarea>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Good Burger</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 id="heading">Welcome To Microblog</h1>
     </div>
-  </body>
+
+    <div class="post">
+      <h2>Your Post</h2>
+      <ul id="post-list">
+      </ul>
+    </div>
+
+
+    <div class="custom">
+      <h2>Create Post:</h2>
+
+      <form id="post-form" style="display:none">
+        <label>Name:</label>
+        <input type="text" name="name" id="post-title">
+        <br/>
+        <label>Description:</label>
+        <input type="text" name="description" id="post-description">
+        <br/>
+        <label>Image URL:</label>
+        <input type="text" name="url" id="users-image">
+        <br/>
+        <br/>
+        <input type="submit" value="Submit Post"></input>
+      </form>
+    </div>
+    <p style='text-align:center' >Let's make a Post! <button id='new-post-btn'>Add a new Post!</button></p>
+  </div>
+</body>
+
 </html>
